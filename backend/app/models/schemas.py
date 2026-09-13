@@ -108,3 +108,47 @@ class HealthResponse(BaseModel):
     environment: str
     security_checks_passed: bool
     features: List[str]
+
+# ================= Limitation & Deadline Schemas =================
+
+class LimitationCalculationRequest(BaseModel):
+    case_type: str = Field(..., description="cheque_bounce_138, consumer_complaint, unpaid_wages, tenancy_deposit, rti_appeal")
+    incident_date: str = Field(..., description="Date of incident/memo in YYYY-MM-DD")
+    language: str = Field("en", description="Target language: en, hi, gu")
+
+class LimitationStage(BaseModel):
+    stage_name: str
+    statutory_timeframe: str
+    deadline_date: str
+    days_left: int
+    status: str  # SAFE, URGENT, EXPIRED
+    guideline: str
+
+class LimitationCalculationResponse(BaseModel):
+    case_type: str
+    incident_date: str
+    statute_name: str
+    stages: List[LimitationStage]
+    is_expired: bool
+    condonation_of_delay_available: bool
+    remedy_notes: str
+
+# ================= BNS vs IPC Converter Schemas =================
+
+class BNSConversionRequest(BaseModel):
+    query: str = Field(..., description="Old IPC section (e.g. 420, 302) or crime keyword (e.g. cheating, murder)")
+    language: str = Field("en", description="Target language: en, hi, gu")
+
+class BNSOffenseDetail(BaseModel):
+    old_ipc_section: str
+    new_bns_section: str
+    offense_name: str
+    classification: str  # Bailable / Non-Bailable, Cognizable / Non-Cognizable
+    punishment_summary: str
+    new_provisions_bns: str
+
+class BNSConversionResponse(BaseModel):
+    query: str
+    matches: List[BNSOffenseDetail]
+    count: int
+

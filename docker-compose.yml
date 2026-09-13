@@ -1,0 +1,10 @@
+services:
+  nyayasetu:
+    build: .
+    container_name: nyayasetu_ai
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - PORT=8000
+    restart: unless-stopped

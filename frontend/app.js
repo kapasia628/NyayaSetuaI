@@ -19,10 +19,13 @@ const I18N = {
     tabSimplifier: "Legal Simplifier",
     tabChat: "NyayaMitra (Chat)",
     tabDraft: "Notice Drafter",
+    tabLimitation: "Limitation & Deadlines",
+    tabBns: "BNS 2023 Matrix",
     tabAid: "Free Legal Aid",
     simplifierHeading: "Document Simplifier & Risk Analyzer",
     simplifierDesc: "Paste any legal notice, lease agreement, or police notice. Our AI redacts your sensitive PII (Aadhaar, Phone, Account), translates into plain language, and highlights adverse risks.",
     pasteDocLabel: "Paste Legal Document Text:",
+    uploadBtnText: "Upload File",
     speechBtnText: "Voice Input",
     sampleBtnText: "Load Sample Notice",
     piiShieldLabel: "🛡️ Enable Automated Indian PII Masking (Aadhaar, PAN, Phone numbers)",
@@ -32,6 +35,10 @@ const I18N = {
     chatWelcome: "Namaste! I am NyayaMitra, your AI legal guidance assistant. You can ask me questions about rent disputes, unpaid wages, cyber scams, or court notices. How can I help you today?",
     draftHeading: "Automated Legal Notice & RTI Drafter",
     draftDesc: "Generate legally formatted, court-admissible notices and RTI applications ready to print and dispatch via Indian Speed Post.",
+    limitationHeading: "Statutory Limitation & Deadline Calculator",
+    limitationDesc: "Under the Limitation Act 1963 and special statutes, calculate critical legal deadlines for notice issuance and court filings.",
+    bnsHeading: "Bharatiya Nyaya Sanhita (BNS 2023) vs IPC Matrix",
+    bnsDesc: "Translate old Indian Penal Code (IPC 1860) sections to new BNS 2023 laws. Check bailable status, punishments, and community service provisions.",
     aidHeading: "Free Legal Aid & DLSA Locator (NALSA)",
     aidDesc: "Under Article 39A of the Indian Constitution and Section 12 of the Legal Services Authorities Act 1987, eligible citizens receive free advocate representation and dispute counseling.",
     analyzing: "Analyzing legal document with AI & redacting PII...",
@@ -45,10 +52,13 @@ const I18N = {
     tabSimplifier: "દસ્તાવેજ સમજો",
     tabChat: "ન્યાયમિત્ર (ચેટ)",
     tabDraft: "નોટિસ તૈયાર કરો",
+    tabLimitation: "સમયમર્યાદા (મિયાદ)",
+    tabBns: "BNS 2023 કન્વર્ટર",
     tabAid: "મફત કાનૂની સહાય",
     simplifierHeading: "દસ્તાવેજ સમજો અને જોખમ ચકાસો",
     simplifierDesc: "કોઈપણ કાનૂની નોટિસ, ભાડા કરાર કે પોલીસ નોટિસ અહીં પેસ્ટ કરો. અમારું AI તમારા આધાર, ફોન નંબર સુરક્ષિત રાખીને સરળ ગુજરાતીમાં સમજાવશે.",
     pasteDocLabel: "કાનૂની દસ્તાવેજ અહીં પેસ્ટ કરો:",
+    uploadBtnText: "ફાઇલ અપલોડ",
     speechBtnText: "બોલીને લખાવો",
     sampleBtnText: "નમૂનાની નોટિસ લો",
     piiShieldLabel: "🛡️ આધાર, પાન કાર્ડ અને ફોન નંબર સુરક્ષિત (માસ્ક) રાખો",
@@ -58,6 +68,10 @@ const I18N = {
     chatWelcome: "નમસ્તે! હું ન્યાયમિત્ર છું, તમારો કાનૂની સહાયક. તમે મને ભાડા વિવાદ, પગાર ન મળવો, ઓનલાઇન છેતરપિંડી કે કોર્ટ નોટિસ અંગે પૂછી શકો છો. હું તમને કેવી રીતે મદદ કરી શકું?",
     draftHeading: "ઓટોમેટેડ લીગલ નોટિસ અને RTI ડ્રાફ્ટર",
     draftDesc: "ભારતીય સ્પીડ પોસ્ટ દ્વારા મોકલવા માટે માન્ય અને કોર્ટમાં સ્વીકાર્ય લીગલ નોટિસ અને RTI અરજી તરત તૈયાર કરો.",
+    limitationHeading: "કાનૂની સમયમર્યાદા (મિયાદ) કેલ્ક્યુલેટર",
+    limitationDesc: "Limitation Act 1963 મુજબ નોટિસ મોકલવાની અને કોર્ટમાં કેસ દાખલ કરવાની આખરી તારીખો અને દિવસો ગણો.",
+    bnsHeading: "ભારતીય ન્યાય સંહિતા (BNS 2023) vs IPC કન્વર્ટર",
+    bnsDesc: "જૂની IPC કલમો (જેમ કે 420, 302) ને નવી BNS 2023 કલમોમાં કન્વર્ટ કરો અને જામીન તથા સમાજ સેવાના નિયમો જાણો.",
     aidHeading: "મફત કાનૂની સહાય અને DLSA કેન્દ્રો (NALSA)",
     aidDesc: "ભારતીય બંધારણની કલમ 39A અને કાનૂની સેવા સત્તામંડળ ધારાની કલમ 12 હેઠળ લાયક નાગરિકોને મફત વકીલ અને સહાય મળે છે.",
     analyzing: "દસ્તાવેજનું વિશ્લેષણ અને PII સુરક્ષા ચકાસી રહ્યા છીએ...",
@@ -71,10 +85,13 @@ const I18N = {
     tabSimplifier: "दस्तावेज़ सरल करें",
     tabChat: "न्यायमित्र (संवाद)",
     tabDraft: "नोटिस तैयार करें",
+    tabLimitation: "समयसीमा (मियाद)",
+    tabBns: "BNS 2023 मैट्रिक्स",
     tabAid: "मुफ्त कानूनी सहायता",
     simplifierHeading: "दस्तावेज़ सरलीकरण एवं जोखिम विश्लेषण",
     simplifierDesc: "कोई भी कानूनी नोटिस, किराया अनुबंध अथवा शिकायत यहाँ पेस्ट करें। हमारा AI आपके आधार व फोन नंबर को सुरक्षित रखकर सरल भाषा में समझाएगा।",
     pasteDocLabel: "कानूनी दस्तावेज़ यहाँ पेस्ट करें:",
+    uploadBtnText: "फाइल अपलोड",
     speechBtnText: "बोलकर दर्ज करें",
     sampleBtnText: "सैंपल नोटिस लोड करें",
     piiShieldLabel: "🛡️ आधार, पैन एवं फोन नंबर सुरक्षा (मास्किंग) सक्षम करें",
@@ -84,6 +101,10 @@ const I18N = {
     chatWelcome: "नमस्ते! मैं न्यायमित्र हूँ, आपका AI कानूनी सहायक। आप मुझसे किराया विवाद, बकाया वेतन, साइबर फ्रॉड अथवा कानूनी नोटिस पर सवाल पूछ सकते हैं। मैं आपकी क्या मदद करूँ?",
     draftHeading: "स्वचालित लीगल नोटिस एवं RTI ड्राफ्टर",
     draftDesc: "स्पीड पोस्ट द्वारा प्रेषित किए जाने योग्य एवं न्यायालय में ग्राह्य विधिक नोटिस और आरटीआई आवेदन तुरंत तैयार करें।",
+    limitationHeading: "वैधानिक परिसीमा एवं समयसीमा कैलकुलेटर",
+    limitationDesc: "परिसीमा अधिनियम 1963 के तहत कानूनी नोटिस भेजने एवं न्यायालय में वाद दायर करने की महत्वपूर्ण तिथियों की गणना करें।",
+    bnsHeading: "भारतीय न्याय संहिता (BNS 2023) vs IPC मैट्रिक्स",
+    bnsDesc: "पुरानी आईपीसी धाराओं (जैसे 420, 302) को नई बीएनएस धाराओं में परिवर्तित करें तथा ज़मानत व सामुदायिक सेवा प्रावधान देखें।",
     aidHeading: "निःशुल्क कानूनी सहायता एवं DLSA केंद्र (NALSA)",
     aidDesc: "भारतीय संविधान के अनुच्छेद 39A एवं विधिक सेवा प्राधिकरण अधिनियम की धारा 12 के तहत पात्र नागरिकों को मुफ्त वकील सहायता उपलब्ध है।",
     analyzing: "दस्तावेज़ का विश्लेषण एवं PII सुरक्षा प्रक्रिया जारी है...",
@@ -118,8 +139,11 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSpeechRecognition();
   setupTextToSpeech();
   setupSimplifier();
+  setupFileUpload();
   setupChat();
   setupDrafting();
+  setupLimitation();
+  setupBNS();
   setupLegalAid();
 });
 
@@ -143,11 +167,14 @@ function applyLanguage(lang) {
   document.getElementById("tabTitleSimplifier").textContent = strings.tabSimplifier;
   document.getElementById("tabTitleChat").textContent = strings.tabChat;
   document.getElementById("tabTitleDraft").textContent = strings.tabDraft;
+  if (document.getElementById("tabTitleLimitation")) document.getElementById("tabTitleLimitation").textContent = strings.tabLimitation;
+  if (document.getElementById("tabTitleBns")) document.getElementById("tabTitleBns").textContent = strings.tabBns;
   document.getElementById("tabTitleAid").textContent = strings.tabAid;
 
   document.getElementById("simplifierHeading").textContent = strings.simplifierHeading;
   document.getElementById("simplifierDesc").textContent = strings.simplifierDesc;
   document.getElementById("pasteDocLabel").textContent = strings.pasteDocLabel;
+  if (document.getElementById("uploadBtnText")) document.getElementById("uploadBtnText").textContent = strings.uploadBtnText;
   document.getElementById("speechBtnText").textContent = strings.speechBtnText;
   document.getElementById("sampleBtnText").textContent = strings.sampleBtnText;
   document.getElementById("piiShieldLabel").textContent = strings.piiShieldLabel;
@@ -160,6 +187,11 @@ function applyLanguage(lang) {
   document.getElementById("draftHeading").textContent = strings.draftHeading;
   document.getElementById("draftDesc").textContent = strings.draftDesc;
 
+  if (document.getElementById("limitationHeading")) document.getElementById("limitationHeading").textContent = strings.limitationHeading;
+  if (document.getElementById("limitationDesc")) document.getElementById("limitationDesc").textContent = strings.limitationDesc;
+  if (document.getElementById("bnsHeading")) document.getElementById("bnsHeading").textContent = strings.bnsHeading;
+  if (document.getElementById("bnsDesc")) document.getElementById("bnsDesc").textContent = strings.bnsDesc;
+
   document.getElementById("aidHeading").textContent = strings.aidHeading;
   document.getElementById("aidDesc").textContent = strings.aidDesc;
 }
@@ -170,8 +202,10 @@ function setupTabs() {
     { btn: document.getElementById("tabBtnSimplifier"), panel: document.getElementById("tab-simplifier") },
     { btn: document.getElementById("tabBtnChat"), panel: document.getElementById("tab-chat") },
     { btn: document.getElementById("tabBtnDraft"), panel: document.getElementById("tab-draft") },
+    { btn: document.getElementById("tabBtnLimitation"), panel: document.getElementById("tab-limitation") },
+    { btn: document.getElementById("tabBtnBns"), panel: document.getElementById("tab-bns") },
     { btn: document.getElementById("tabBtnAid"), panel: document.getElementById("tab-aid") }
-  ];
+  ].filter(t => t.btn && t.panel);
 
   tabs.forEach(({ btn, panel }) => {
     btn.addEventListener("click", () => {
@@ -629,3 +663,184 @@ function setupLegalAid() {
   // Initial load
   searchBtn.click();
 }
+
+// ================= File Upload Support =================
+function setupFileUpload() {
+  const uploadBtn = document.getElementById("uploadDocBtn");
+  const fileInput = document.getElementById("docFileInput");
+  const docInput = document.getElementById("docTextInput");
+
+  if (!uploadBtn || !fileInput) return;
+
+  uploadBtn.addEventListener("click", () => fileInput.click());
+
+  fileInput.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      docInput.value = event.target.result;
+      alert(`File "${file.name}" loaded successfully into document text area!`);
+    };
+    reader.onerror = () => alert("Could not read file.");
+
+    // Plain text or utf-8 parse
+    reader.readAsText(file);
+  });
+}
+
+// ================= Limitation & Deadline Calculator Logic =================
+function setupLimitation() {
+  const calcBtn = document.getElementById("calcLimitationBtn");
+  const resultBox = document.getElementById("limitationResult");
+  const dateInput = document.getElementById("limitationDateInput");
+
+  // Set default date to today or 15 days ago
+  if (dateInput && !dateInput.value) {
+    const d = new Date();
+    d.setDate(d.getDate() - 10);
+    dateInput.value = d.toISOString().split("T")[0];
+  }
+
+  if (!calcBtn) return;
+
+  calcBtn.addEventListener("click", async () => {
+    const caseType = document.getElementById("limitationCaseType").value;
+    const incDate = dateInput.value;
+
+    if (!incDate) {
+      alert("Please select the date of incident or memo.");
+      return;
+    }
+
+    calcBtn.disabled = true;
+    calcBtn.textContent = "Calculating statutory timelines...";
+
+    try {
+      const res = await fetch("/api/limitation-calculator", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          case_type: caseType,
+          incident_date: incDate,
+          language: currentLang
+        })
+      });
+
+      if (!res.ok) throw new Error("Calculation request failed.");
+      const data = await res.json();
+
+      let stagesHtml = data.stages.map((s, idx) => {
+        const badgeColor = s.status === "EXPIRED" ? "var(--danger-text)" : s.status === "URGENT" ? "var(--warning-text)" : "var(--success-text)";
+        const badgeBg = s.status === "EXPIRED" ? "var(--danger-bg)" : s.status === "URGENT" ? "var(--warning-bg)" : "var(--success-bg)";
+        return `
+          <div class="clause-item" style="margin-bottom:1rem; border-left: 4px solid ${badgeColor};">
+            <div class="clause-title">
+              <span>Stage ${idx + 1}: ${s.stage_name}</span>
+              <span class="text-xs" style="background:${badgeBg}; color:${badgeColor}; padding:2px 8px; border-radius:4px; font-weight:700;">
+                ${s.status} (${s.days_left >= 0 ? s.days_left + " Days Left" : Math.abs(s.days_left) + " Days Expired"})
+              </span>
+            </div>
+            <p class="text-sm text-muted">Statutory Window: ${s.statutory_timeframe}</p>
+            <p class="text-sm"><strong>Statutory Deadline:</strong> <span style="font-weight:700; color:${badgeColor}">${s.deadline_date}</span></p>
+            <p class="text-xs" style="margin-top:0.35rem;">ℹ️ ${s.guideline}</p>
+          </div>
+        `;
+      }).join("");
+
+      resultBox.innerHTML = `
+        <div class="risk-banner ${data.is_expired ? 'risk-high' : 'risk-medium'}">
+          <div>
+            <h3 style="font-size:1.15rem; font-weight:800;">${data.is_expired ? "⚠️ LIMITATION EXPIRED / URGENT ACTION REQUIRED" : "⏱️ PROCEDURAL TIMELINE ACTIVE"}</h3>
+            <p class="text-sm">Statute: <strong>${data.statute_name}</strong> | Incident Date: <strong>${data.incident_date}</strong></p>
+          </div>
+        </div>
+
+        <div class="analysis-section">
+          <h3>📅 Statutory Stages & Mandatory Deadlines</h3>
+          ${stagesHtml}
+        </div>
+
+        <div class="analysis-section" style="background:var(--bg-surface-alt); padding:0.85rem; border-radius:8px;">
+          <h4>🛡️ Legal Remedy & Delay Condonation</h4>
+          <p class="text-sm">${data.remedy_notes}</p>
+        </div>
+      `;
+
+      resultBox.classList.remove("hidden");
+      resultBox.scrollIntoView({ behavior: "smooth" });
+    } catch (err) {
+      alert("Error: " + err.message);
+    } finally {
+      calcBtn.disabled = false;
+      calcBtn.textContent = "⚡ Calculate Statutory Deadlines & Limitation";
+    }
+  });
+}
+
+// ================= BNS 2023 vs IPC Matrix Logic =================
+function setupBNS() {
+  const searchBtn = document.getElementById("bnsSearchBtn");
+  const searchInput = document.getElementById("bnsSearchInput");
+  const resultsBox = document.getElementById("bnsResults");
+  const chips = document.querySelectorAll(".bns-chip");
+
+  if (!searchBtn || !searchInput) return;
+
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      searchInput.value = chip.getAttribute("data-term");
+      searchBtn.click();
+    });
+  });
+
+  searchBtn.addEventListener("click", async () => {
+    const q = searchInput.value.trim();
+    if (!q) {
+      alert("Please enter an IPC section or crime name (e.g. 420, 302, cheating).");
+      return;
+    }
+
+    searchBtn.disabled = true;
+    searchBtn.textContent = "Searching BNS database...";
+
+    try {
+      const res = await fetch(`/api/bns-converter?query=${encodeURIComponent(q)}`);
+      if (!res.ok) throw new Error("Search failed.");
+      const data = await res.json();
+
+      let cardsHtml = data.matches.map(m => `
+        <div class="clause-item" style="margin-bottom:1rem; border-left: 4px solid var(--primary);">
+          <div class="clause-title" style="font-size:1.05rem;">
+            <span>${m.offense_name}</span>
+            <span class="text-xs" style="background:var(--primary-light); color:var(--primary); padding:2px 8px; border-radius:4px; font-weight:700;">
+              ${m.old_ipc_section} ➔ ${m.new_bns_section}
+            </span>
+          </div>
+          <p class="text-sm" style="margin:0.35rem 0;"><strong>Classification:</strong> ${m.classification}</p>
+          <p class="text-sm"><strong>Punishment:</strong> ${m.punishment_summary}</p>
+          <div class="text-xs" style="margin-top:0.4rem; padding:0.4rem; background:var(--warning-bg); border-radius:4px; color:var(--warning-text);">
+            🌟 <strong>New in BNS 2023:</strong> ${m.new_provisions_bns}
+          </div>
+        </div>
+      `).join("");
+
+      resultsBox.innerHTML = `
+        <div class="panel-header">
+          <h3>BNS 2023 Results for "${data.query}" (${data.count} found)</h3>
+        </div>
+        ${cardsHtml}
+      `;
+
+      resultsBox.classList.remove("hidden");
+      resultsBox.scrollIntoView({ behavior: "smooth" });
+    } catch (err) {
+      alert("Search failed: " + err.message);
+    } finally {
+      searchBtn.disabled = false;
+      searchBtn.textContent = "Search BNS Matrix";
+    }
+  });
+}
+

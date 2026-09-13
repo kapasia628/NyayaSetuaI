@@ -76,6 +76,12 @@
       <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-draft" id="tabBtnDraft">
         ✍️ <span id="tabTitleDraft">Notice Drafter</span>
       </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-limitation" id="tabBtnLimitation">
+        ⏳ <span id="tabTitleLimitation">Limitation & Deadlines</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-bns" id="tabBtnBns">
+        🔄 <span id="tabTitleBns">BNS 2023 Matrix</span>
+      </button>
       <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-aid" id="tabBtnAid">
         🏛️ <span id="tabTitleAid">Free Legal Aid</span>
       </button>
@@ -94,6 +100,10 @@
         <div class="input-toolbar">
           <label for="docTextInput" class="input-label" id="pasteDocLabel">Paste Legal Document Text:</label>
           <div class="toolbar-actions">
+            <input type="file" id="docFileInput" accept=".txt,.pdf,.doc,.docx" style="display:none;" />
+            <button id="uploadDocBtn" class="btn btn-secondary btn-sm" aria-label="Upload document file">
+              📁 <span id="uploadBtnText">Upload File</span>
+            </button>
             <button id="speechInputBtn" class="btn btn-secondary btn-sm" aria-label="Dictate document using voice">
               🎙️ <span id="speechBtnText">Voice Input</span>
             </button>
@@ -221,6 +231,74 @@
           </div>
           <pre id="draftPreviewContent" class="preview-box">Your generated notice will appear here ready to print...</pre>
         </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB: STATUTORY LIMITATION CALCULATOR ================= -->
+    <section id="tab-limitation" class="tab-panel" role="tabpanel" aria-labelledby="tabBtnLimitation" hidden>
+      <div class="panel-header">
+        <h2 id="limitationHeading">Statutory Limitation & Deadline Calculator</h2>
+        <p id="limitationDesc" class="text-muted">
+          Under the Limitation Act 1963 and special statutes, calculate critical legal deadlines for notice issuance and court filings.
+        </p>
+      </div>
+
+      <div class="input-card">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="limitationCaseType" class="form-label" id="lblCaseType">Dispute / Case Category:</label>
+            <select id="limitationCaseType" class="select-input">
+              <option value="cheque_bounce_138">Cheque Dishonour / Bounce (Section 138 NI Act)</option>
+              <option value="consumer_complaint">Consumer Dispute / Deficiency (Consumer Protection Act)</option>
+              <option value="unpaid_wages">Unpaid Salary / Wages Recovery (Labor / Limitation Act)</option>
+              <option value="tenancy_deposit">Tenant Security Deposit Refund (Model Tenancy Act)</option>
+              <option value="general_suit">General Civil Recovery / Contract Breach</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="limitationDateInput" class="form-label" id="lblIncidentDate">Date of Incident / Memo / Breach:</label>
+            <input type="date" id="limitationDateInput" class="text-input" />
+          </div>
+        </div>
+        <button id="calcLimitationBtn" class="btn btn-primary btn-block">
+          ⚡ Calculate Statutory Deadlines & Limitation
+        </button>
+      </div>
+
+      <div id="limitationResult" class="result-card hidden" aria-live="polite">
+        <!-- Results injected by app.js -->
+      </div>
+    </section>
+
+    <!-- ================= TAB: BNS 2023 vs IPC CONVERTER ================= -->
+    <section id="tab-bns" class="tab-panel" role="tabpanel" aria-labelledby="tabBtnBns" hidden>
+      <div class="panel-header">
+        <h2 id="bnsHeading">Bharatiya Nyaya Sanhita (BNS 2023) vs IPC Matrix</h2>
+        <p id="bnsDesc" class="text-muted">
+          Translate old Indian Penal Code (IPC 1860) sections to new BNS 2023 laws. Check bailable status, punishments, and community service provisions.
+        </p>
+      </div>
+
+      <div class="input-card">
+        <div class="input-toolbar">
+          <label for="bnsSearchInput" class="input-label" id="lblBnsSearch">Enter IPC Section (e.g. 420, 302, 379) or Crime Name:</label>
+        </div>
+        <div class="chat-input-bar">
+          <input type="text" id="bnsSearchInput" class="text-input" placeholder="e.g. 420 or cheating or hit and run..." />
+          <button id="bnsSearchBtn" class="btn btn-primary">Search BNS Matrix</button>
+        </div>
+
+        <div class="chips-container" style="margin-top:0.75rem;">
+          <button class="chip-btn bns-chip" data-term="420">Cheating (420 ➔ 318)</button>
+          <button class="chip-btn bns-chip" data-term="302">Murder (302 ➔ 103)</button>
+          <button class="chip-btn bns-chip" data-term="379">Theft (379 ➔ 303)</button>
+          <button class="chip-btn bns-chip" data-term="499">Defamation (499 ➔ 356)</button>
+          <button class="chip-btn bns-chip" data-term="hit and run">Hit & Run (304A ➔ 106)</button>
+        </div>
+      </div>
+
+      <div id="bnsResults" class="result-card hidden" aria-live="polite">
+        <!-- Results injected by app.js -->
       </div>
     </section>
 

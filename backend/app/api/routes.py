@@ -15,13 +15,17 @@ from app.models.schemas import (
     LegalDraftRequest,
     LegalDraftResponse,
     LegalAidSearchResponse,
-    HealthResponse
+    HealthResponse,
+    LimitationCalculationRequest,
+    LimitationCalculationResponse,
+    BNSConversionResponse
 )
 from app.core.security import PIIRedactor, SecurityGuard
 from app.core.config import settings
 from app.services.legal_engine import LegalEngine
 from app.services.drafting_engine import DraftingEngine
 from app.services.legal_aid_service import LegalAidService
+from app.services.advanced_legal_service import LimitationCalculator, BNSConverter
 
 router = APIRouter()
 
@@ -142,3 +146,22 @@ async def check_legal_aid_eligibility(
         is_in_custody=is_in_custody,
         annual_income_inr=annual_income_inr
     )
+
+@router.post("/limitation-calculator", response_model=LimitationCalculationResponse, tags=["Statutory Deadlines"])
+async def calculate_statutory_limitation(request: LimitationCalculationRequest):
+    """
+    Computes statutory limitation deadlines and urgent procedural filing dates
+    under the Limitation Act 1963, NI Act 138, and Consumer Protection Act.
+    """
+    return LimitationCalculator.calculate(request)
+
+@router.get("/bns-converter", response_model=BNSConversionResponse, tags=["Criminal Law (BNS 2023)"])
+async def convert_bns_section(
+    query: str = Query(..., description="IPC section (e.g. 420, 302) or crime keyword (e.g. cheating, theft)")
+):
+    """
+    Translates old IPC 1860 sections into new Bharatiya Nyaya Sanhita (BNS 2023) sections,
+    bailable status, punishments, and community service provisions.
+    """
+    return BNSConverter.search(query)
+
