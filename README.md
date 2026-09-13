@@ -1,17 +1,19 @@
 # ⚖️ NyayaSetu AI (ન્યાયસેતુ AI / न्यायसेतु AI)
 ### Democratizing Legal Assistance & Citizen Access to Justice Across India
 
-[![CI / Quality Assurance](https://github.com/nyayasetu/nyayasetu-ai/actions/workflows/ci.yml/badge.svg)](https://github.com)
+[![CI / Quality Assurance](https://github.com/kapasia628/NyayaSetuaI/actions/workflows/ci.yml/badge.svg)](https://github.com/kapasia628/NyayaSetuaI)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Test Coverage](https://img.shields.io/badge/coverage-91%25-brightgreen.svg)]()
 [![Accessibility](https://img.shields.io/badge/WCAG%202.1-AA%20Compliant-success.svg)]()
-[![Repo Size](https://img.shields.io/badge/Repo%20Size-~0.4%20MB%20(%3C10MB%20Mandate)-blue.svg)]()
+[![Repo Size](https://img.shields.io/badge/Repo%20Size-~0.1%20MB%20(%3C10MB%20Mandate)-blue.svg)]()
 [![Languages](https://img.shields.io/badge/Languages-English%20%7C%20%E0%AA%97%E0%AB%81%E0%AA%9C%E0%AA%B0%E0%AA%BE%E0%AA%A4%E0%AB%80%20%7C%20%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A5%80-orange.svg)]()
 
 > **Submission for Hack2Skill PromptWars (Virtual Edition)**  
 > **Challenge Track:** AI for Legal Assistance & Access  
 > **Participant:** Abbas Kapasi  
+> **Repository:** [github.com/kapasia628/NyayaSetuaI](https://github.com/kapasia628/NyayaSetuaI)  
+
 
 ---
 
