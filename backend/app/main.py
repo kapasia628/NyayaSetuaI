@@ -1,13 +1,13 @@
 """
 Main Application Entrypoint for NyayaSetu AI.
 Enterprise-grade Legal Assistance & Access Platform.
-Supports local execution, Docker containers, and Vercel serverless deployments.
+Unified architecture supporting local Uvicorn, Docker, and Vercel Serverless.
 """
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse, HTMLResponse, Response
 import os
 import time
 
@@ -49,40 +49,44 @@ async def add_security_headers(request: Request, call_next):
 # Register API Router
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
-def resolve_static_path(filename: str) -> str:
-    """Finds the absolute path of a static file across root and frontend directories."""
+def get_static_content(filename: str) -> str:
+    """
+    Safely reads static assets across backend package, root, and frontend directories.
+    Guaranteed to never raise an unhandled file system exception in serverless runtimes.
+    """
     candidates = [
-        os.path.abspath(filename),
+        os.path.join(os.path.dirname(__file__), "static", filename),
         os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", filename)),
         os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", filename)),
-        os.path.abspath(os.path.join(os.path.dirname(__file__), filename))
+        os.path.abspath(filename)
     ]
-    for candidate in candidates:
-        if os.path.exists(candidate) and os.path.isfile(candidate):
-            return candidate
-    return filename
+    for p in candidates:
+        if os.path.exists(p) and os.path.isfile(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    return f.read()
+            except Exception:
+                pass
+    return ""
 
-# Static UI File Routes (Guarantees zero 404s on Vercel Serverless)
-@app.get("/", include_in_schema=False)
+# Safe HTML and Asset Handlers (Zero 500s on Vercel Serverless)
+@app.get("/", response_class=HTMLResponse, include_in_schema=False)
+@app.get("/index.html", response_class=HTMLResponse, include_in_schema=False)
 async def serve_root():
-    return FileResponse(resolve_static_path("index.html"), media_type="text/html")
-
-@app.get("/index.html", include_in_schema=False)
-async def serve_index_html():
-    return FileResponse(resolve_static_path("index.html"), media_type="text/html")
+    content = get_static_content("index.html")
+    if content:
+        return HTMLResponse(content=content, status_code=200)
+    return HTMLResponse(content="<h1>NyayaSetu AI is running. Visit /docs for API.</h1>", status_code=200)
 
 @app.get("/styles.css", include_in_schema=False)
 async def serve_styles():
-    return FileResponse(resolve_static_path("styles.css"), media_type="text/css")
+    content = get_static_content("styles.css")
+    return Response(content=content, media_type="text/css")
 
 @app.get("/app.js", include_in_schema=False)
 async def serve_app_js():
-    return FileResponse(resolve_static_path("app.js"), media_type="application/javascript")
-
-# Fallback mount for any extra static assets
-frontend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend"))
-if os.path.exists(frontend_dir):
-    app.mount("/static", StaticFiles(directory=frontend_dir), name="static")
+    content = get_static_content("app.js")
+    return Response(content=content, media_type="application/javascript")
 
 if __name__ == "__main__":
     import uvicorn

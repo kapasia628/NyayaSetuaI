@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NyayaSetu AI - Accessible, Trilingual AI Legal Assistance and Citizen Rights Platform for India. Supporting English, Gujarati, and Hindi." />
+  <title>NyayaSetu AI | Citizen Legal Assistance & Access</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Accessible Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Gujarati:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Navigation / Accessibility Bar -->
+  <header class="navbar" role="banner">
+    <div class="nav-container">
+      <div class="brand">
+        <span class="brand-badge" aria-hidden="true">⚖️</span>
+        <div class="brand-text">
+          <h1 class="brand-title" id="appTitle">NyayaSetu AI</h1>
+          <span class="brand-tagline" id="appTagline">Bridge to Justice & Citizen Rights</span>
+        </div>
+      </div>
+
+      <!-- Controls & Accessibility -->
+      <div class="nav-controls" role="toolbar" aria-label="Accessibility & Language Controls">
+        <!-- Language Selector -->
+        <div class="control-group">
+          <label for="langSelect" class="sr-only">Select Language</label>
+          <select id="langSelect" class="select-input" aria-label="Choose platform language">
+            <option value="en">English</option>
+            <option value="gu">ગુજરાતી (Gujarati)</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+          </select>
+        </div>
+
+        <!-- High Contrast / Dark Mode Toggle -->
+        <button id="themeToggle" class="btn btn-secondary icon-btn" aria-label="Toggle High Contrast or Dark Mode" title="Toggle Theme">
+          <span id="themeIcon" aria-hidden="true">🌓</span>
+          <span class="btn-text" id="themeText">Theme</span>
+        </button>
+
+        <!-- Voice Reader Toggle -->
+        <button id="ttsToggle" class="btn btn-secondary icon-btn" aria-label="Read active screen content aloud" title="Text-to-Speech Reader">
+          <span aria-hidden="true">🔊</span>
+          <span class="btn-text" id="readAloudText">Read Aloud</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Emergency Citizen Helpline Banner -->
+  <aside class="emergency-bar" role="complementary" aria-label="Emergency Legal Helplines">
+    <div class="emergency-container">
+      <span class="emergency-pill">GOVT TOLL-FREE</span>
+      <span class="helpline-item">🏛️ <strong>NALSA Legal Aid:</strong> <a href="tel:15100">15100</a></span>
+      <span class="helpline-divider">|</span>
+      <span class="helpline-item">🛡️ <strong>Cyber Fraud:</strong> <a href="tel:1930">1930</a></span>
+      <span class="helpline-divider">|</span>
+      <span class="helpline-item">👩 <strong>Women Helpline:</strong> <a href="tel:1091">1091</a></span>
+      <span class="helpline-divider">|</span>
+      <span class="helpline-item">🛒 <strong>Consumer Grievance:</strong> <a href="tel:1915">1915</a></span>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Tabs -->
+  <main class="main-container" id="mainContent" role="main">
+    <nav class="tabs-nav" role="tablist" aria-label="Primary Platform Navigation">
+      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-simplifier" id="tabBtnSimplifier">
+        📄 <span id="tabTitleSimplifier">Legal Simplifier</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-chat" id="tabBtnChat">
+        💬 <span id="tabTitleChat">NyayaMitra (Chat)</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-draft" id="tabBtnDraft">
+        ✍️ <span id="tabTitleDraft">Notice Drafter</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-limitation" id="tabBtnLimitation">
+        ⏳ <span id="tabTitleLimitation">Limitation & Deadlines</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-bns" id="tabBtnBns">
+        🔄 <span id="tabTitleBns">BNS 2023 Matrix</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-aid" id="tabBtnAid">
+        🏛️ <span id="tabTitleAid">Free Legal Aid</span>
+      </button>
+    </nav>
+
+    <!-- ================= TAB 1: DOCUMENT SIMPLIFIER ================= -->
+    <section id="tab-simplifier" class="tab-panel active" role="tabpanel" aria-labelledby="tabBtnSimplifier">
+      <div class="panel-header">
+        <h2 id="simplifierHeading">Document Simplifier & Risk Analyzer</h2>
+        <p id="simplifierDesc" class="text-muted">
+          Paste any legal notice, lease agreement, or police notice. Our AI redacts your sensitive PII (Aadhaar, Phone, Account), translates into plain language, and highlights adverse risks.
+        </p>
+      </div>
+
+      <div class="input-card">
+        <div class="input-toolbar">
+          <label for="docTextInput" class="input-label" id="pasteDocLabel">Paste Legal Document Text:</label>
+          <div class="toolbar-actions">
+            <input type="file" id="docFileInput" accept=".txt,.pdf,.doc,.docx" style="display:none;" />
+            <button id="uploadDocBtn" class="btn btn-secondary btn-sm" aria-label="Upload document file">
+              📁 <span id="uploadBtnText">Upload File</span>
+            </button>
+            <button id="speechInputBtn" class="btn btn-secondary btn-sm" aria-label="Dictate document using voice">
+              🎙️ <span id="speechBtnText">Voice Input</span>
+            </button>
+            <button id="loadSampleBtn" class="btn btn-secondary btn-sm">
+              📋 <span id="sampleBtnText">Load Sample Notice</span>
+            </button>
+          </div>
+        </div>
+
+        <textarea id="docTextInput" class="textarea-input" rows="7" placeholder="Paste your legal notice, tenancy agreement, or consumer grievance here..." aria-required="true"></textarea>
+
+        <div class="action-footer">
+          <label class="checkbox-label">
+            <input type="checkbox" id="redactPiiCheckbox" checked />
+            <span id="piiShieldLabel">🛡️ Enable Automated Indian PII Masking (Aadhaar, PAN, Phone numbers)</span>
+          </label>
+          <button id="analyzeDocBtn" class="btn btn-primary">
+            🔍 <span id="analyzeBtnText">Analyze & Simplify</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Result Container -->
+      <div id="simplifierResult" class="result-card hidden" aria-live="polite">
+        <!-- Results injected dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- ================= TAB 2: LEGAL MITRA CHAT ================= -->
+    <section id="tab-chat" class="tab-panel" role="tabpanel" aria-labelledby="tabBtnChat" hidden>
+      <div class="panel-header">
+        <h2 id="chatHeading">NyayaMitra - Citizen AI Legal Counselor</h2>
+        <p id="chatDesc" class="text-muted">
+          Ask questions in Gujarati, Hindi, or English regarding your rights under BNS 2023, Consumer Laws, Cheque Bounce, or Landlord disputes.
+        </p>
+      </div>
+
+      <div class="chat-window">
+        <div id="chatMessages" class="chat-messages" role="log" aria-live="polite">
+          <div class="chat-bubble bot-bubble">
+            <div class="bubble-sender">⚖️ NyayaMitra:</div>
+            <div class="bubble-body" id="chatWelcomeMsg">
+              Namaste! I am NyayaMitra, your AI legal guidance assistant. You can ask me questions about rent disputes, unpaid wages, cyber scams, or court notices. How can I help you today?
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Prompt Chips -->
+        <div class="chips-container" role="group" aria-label="Suggested Legal Questions">
+          <button class="chip-btn" data-query="My landlord refuses to return my security deposit. What are my legal rights?">🏠 Deposit Refund</button>
+          <button class="chip-btn" data-query="Company has not paid my salary for 3 months. How to recover?">💼 Unpaid Salary</button>
+          <button class="chip-btn" data-query="I lost money in online phishing scam. What immediate steps to take?">🛡️ Cyber Scam (1930)</button>
+          <button class="chip-btn" data-query="A cheque given to me bounced. What is the process under NI Act?">📜 Cheque Bounce (138)</button>
+        </div>
+
+        <form id="chatForm" class="chat-input-bar">
+          <input type="text" id="chatInput" class="text-input" placeholder="Type your legal question here..." aria-label="Legal question input" required />
+          <button type="button" id="chatVoiceBtn" class="btn btn-secondary" aria-label="Voice input for chat">🎙️</button>
+          <button type="submit" class="btn btn-primary" id="chatSendBtn">Send</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= TAB 3: NOTICE DRAFTER ================= -->
+    <section id="tab-draft" class="tab-panel" role="tabpanel" aria-labelledby="tabBtnDraft" hidden>
+      <div class="panel-header">
+        <h2 id="draftHeading">Automated Legal Notice & RTI Drafter</h2>
+        <p id="draftDesc" class="text-muted">
+          Generate legally formatted, court-admissible notices and RTI applications ready to print and dispatch via Indian Speed Post.
+        </p>
+      </div>
+
+      <div class="drafting-grid">
+        <form id="draftForm" class="draft-form-card">
+          <div class="form-group">
+            <label for="templateSelect" class="form-label" id="lblDocType">Document Type:</label>
+            <select id="templateSelect" class="select-input">
+              <option value="unpaid_salary_notice">Legal Notice: Unpaid Salary / Full & Final Dues</option>
+              <option value="rent_deposit_notice">Legal Notice: Security Deposit Refund from Landlord</option>
+              <option value="consumer_complaint">Legal Notice: Defective Product / Deficiency in Service</option>
+              <option value="rti_application">RTI Application: Form A (Section 6(1) RTI Act)</option>
+              <option value="cease_and_desist">Cease & Desist Notice: Harassment / Defamation</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="senderName" class="form-label" id="lblSenderName">Your Full Name:</label>
+              <input type="text" id="senderName" class="text-input" placeholder="e.g. Ramesh Patel" required />
+            </div>
+            <div class="form-group">
+              <label for="senderAddress" class="form-label" id="lblSenderAddr">Your Full Address:</label>
+              <input type="text" id="senderAddress" class="text-input" placeholder="e.g. 102, Shivalik, Ahmedabad, Gujarat" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="recipientName" class="form-label" id="lblRecipName">Opposing Party / Company Name:</label>
+              <input type="text" id="recipientName" class="text-input" placeholder="e.g. ABC Technologies Pvt Ltd" required />
+            </div>
+            <div class="form-group">
+              <label for="recipientAddress" class="form-label" id="lblRecipAddr">Opposing Party Address:</label>
+              <input type="text" id="recipientAddress" class="text-input" placeholder="e.g. Plot 40, Infocity, Gandhinagar" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="caseDetails" class="form-label" id="lblCaseDetails">Claim Amount / Key Details:</label>
+            <input type="text" id="caseDetails" class="text-input" placeholder="e.g. Amount: Rs. 1,20,000, Period: Jan-July 2024" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="generateDraftBtn">
+            ⚡ Generate Formal Legal Notice
+          </button>
+        </form>
+
+        <div class="draft-preview-card">
+          <div class="preview-header">
+            <h3>Document Preview</h3>
+            <div class="preview-actions">
+              <button id="copyDraftBtn" class="btn btn-secondary btn-sm">📋 Copy</button>
+              <button id="printDraftBtn" class="btn btn-secondary btn-sm">🖨️ Print / PDF</button>
+            </div>
+          </div>
+          <pre id="draftPreviewContent" class="preview-box">Your generated notice will appear here ready to print...</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB: STATUTORY LIMITATION CALCULATOR ================= -->
+    <section id="tab-limitation" class="tab-panel" role="tabpanel" aria-labelledby="tabBtnLimitation" hidden>
+      <div class="panel-header">
+        <h2 id="limitationHeading">Statutory Limitation & Deadline Calculator</h2>
+        <p id="limitationDesc" class="text-muted">
+          Under the Limitation Act 1963 and special statutes, calculate critical legal deadlines for notice issuance and court filings.
+        </p>
+      </div>
+
+      <div class="input-card">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="limitationCaseType" class="form-label" id="lblCaseType">Dispute / Case Category:</label>
+            <select id="limitationCaseType" class="select-input">
+              <option value="cheque_bounce_138">Cheque Dishonour / Bounce (Section 138 NI Act)</option>
+              <option value="consumer_complaint">Consumer Dispute / Deficiency (Consumer Protection Act)</option>
+              <option value="unpaid_wages">Unpaid Salary / Wages Recovery (Labor / Limitation Act)</option>
+              <option value="tenancy_deposit">Tenant Security Deposit Refund (Model Tenancy Act)</option>
+              <option value="general_suit">General Civil Recovery / Contract Breach</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="limitationDateInput" class="form-label" id="lblIncidentDate">Date of Incident / Memo / Breach:</label>
+            <input type="date" id="limitationDateInput" class="text-input" />
+          </div>
+        </div>
+        <button id="calcLimitationBtn" class="btn btn-primary btn-block">
+          ⚡ Calculate Statutory Deadlines & Limitation
+        </button>
+      </div>
+
+      <div id="limitationResult" class="result-card hidden" aria-live="polite">
+        <!-- Results injected by app.js -->
+      </div>
+    </section>
+
+    <!-- ================= TAB: BNS 2023 vs IPC CONVERTER ================= -->
+    <section id="tab-bns" class="tab-panel" role="tabpanel" aria-labelledby="tabBtnBns" hidden>
+      <div class="panel-header">
+        <h2 id="bnsHeading">Bharatiya Nyaya Sanhita (BNS 2023) vs IPC Matrix</h2>
+        <p id="bnsDesc" class="text-muted">
+          Translate old Indian Penal Code (IPC 1860) sections to new BNS 2023 laws. Check bailable status, punishments, and community service provisions.
+        </p>
+      </div>
+
+      <div class="input-card">
+        <div class="input-toolbar">
+          <label for="bnsSearchInput" class="input-label" id="lblBnsSearch">Enter IPC Section (e.g. 420, 302, 379) or Crime Name:</label>
+        </div>
+        <div class="chat-input-bar">
+          <input type="text" id="bnsSearchInput" class="text-input" placeholder="e.g. 420 or cheating or hit and run..." />
+          <button id="bnsSearchBtn" class="btn btn-primary">Search BNS Matrix</button>
+        </div>
+
+        <div class="chips-container" style="margin-top:0.75rem;">
+          <button class="chip-btn bns-chip" data-term="420">Cheating (420 ➔ 318)</button>
+          <button class="chip-btn bns-chip" data-term="302">Murder (302 ➔ 103)</button>
+          <button class="chip-btn bns-chip" data-term="379">Theft (379 ➔ 303)</button>
+          <button class="chip-btn bns-chip" data-term="499">Defamation (499 ➔ 356)</button>
+          <button class="chip-btn bns-chip" data-term="hit and run">Hit & Run (304A ➔ 106)</button>
+        </div>
+      </div>
+
+      <div id="bnsResults" class="result-card hidden" aria-live="polite">
+        <!-- Results injected by app.js -->
+      </div>
+    </section>
+
+    <!-- ================= TAB 4: FREE LEGAL AID ================= -->
+    <section id="tab-aid" class="tab-panel" role="tabpanel" aria-labelledby="tabBtnAid" hidden>
+      <div class="panel-header">
+        <h2 id="aidHeading">Free Legal Aid & DLSA Locator (NALSA)</h2>
+        <p id="aidDesc" class="text-muted">
+          Under Article 39A of the Indian Constitution and Section 12 of the Legal Services Authorities Act 1987, eligible citizens receive free advocate representation and dispute counseling.
+        </p>
+      </div>
+
+      <div class="aid-grid">
+        <!-- Eligibility Checker -->
+        <div class="aid-card">
+          <h3>Eligibility Checker (Section 12)</h3>
+          <p class="text-sm text-muted">Select any criteria that apply to check if you qualify for 100% Free Legal Representation:</p>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" id="checkWomanChild" />
+              <span>Woman or Child</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="checkScSt" />
+              <span>Member of Scheduled Caste (SC) or Scheduled Tribe (ST)</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="checkWorkman" />
+              <span>Industrial Workman / Laborer</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="checkDisabled" />
+              <span>Differently-abled person</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="checkIncome" />
+              <span>Annual income below statutory limit (Rs. 1,00,000 - 3,00,000)</span>
+            </label>
+          </div>
+          <button id="checkEligibilityBtn" class="btn btn-secondary btn-block">Verify Eligibility</button>
+          <div id="eligibilityResult" class="status-box hidden"></div>
+        </div>
+
+        <!-- Directory Search -->
+        <div class="aid-card">
+          <h3>Find Nearby Legal Services Authority</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="stateFilter" class="form-label">Filter State:</label>
+              <select id="stateFilter" class="select-input">
+                <option value="">All States</option>
+                <option value="Gujarat" selected>Gujarat</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Karnataka">Karnataka</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="districtFilter" class="form-label">District:</label>
+              <input type="text" id="districtFilter" class="text-input" placeholder="e.g. Ahmedabad, Surat" />
+            </div>
+          </div>
+          <button id="searchAidBtn" class="btn btn-primary btn-block">Search Clinics</button>
+
+          <div id="clinicsList" class="clinics-list">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Accessible Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-container">
+      <p>
+        <strong>NyayaSetu AI</strong> &bull; Developed for <strong>Hack2Skill PromptWars</strong> &bull;
+        Empowering Indian citizens with accessible justice.
+      </p>
+      <p class="text-xs text-muted">
+        Disclaimer: NyayaSetu AI provides information and assistance, not formal attorney representation. For courtroom defense, consult a certified advocate or your local DLSA authority.
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
